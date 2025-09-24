@@ -5,13 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TV Repair Services Near You | Call Now</title>
   <meta name="description" content="Fast & Affordable TV Repair Services. Same-day Service Available. Call 1800-309-1619 Now!">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary-color: #1e88e5;
-      --text-color: #333;
-      --bg-color: #ffffff;
+      /* Primary color family */
+      --primary-500: #0d6efd; /* vivid blue */
+      --primary-600: #0b5ed7;
+      --primary-700: #0a58ca;
+
+      /* Accent */
+      --accent-500: #ff7043; /* warm coral */
+
+      /* Neutrals */
+      --bg-color: #fbfdfe; /* very light blue-ish white */
+      --card-bg: #ffffff;
+      --muted: #6b7280; /* neutral gray for secondary text */
+      --text-color: #0f1724; /* deep charcoal for primary text */
+
+      /* Focus / success */
+      --success: #2e7d32;
+
       --font: 'Inter', sans-serif;
+      --shadow: 0 6px 30px rgba(15,23,36,0.06);
+      --radius-lg: 18px;
+      --radius-md: 12px;
     }
 
     * {
@@ -24,14 +42,74 @@
       font-family: var(--font);
       background: var(--bg-color);
       color: var(--text-color);
-      line-height: 1.6;
-      padding-bottom: 80px; /* for floating button */
+      line-height: 1.55;
+      padding-bottom: 88px; /* for floating button */
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-weight: 400;
+      font-size: 16px;
     }
 
     .container {
-      padding: 20px;
-      max-width: 600px;
+      padding: 0 20px 20px 20px;
+      max-width: 980px;
       margin: auto;
+    }
+
+    .hero {
+      background: linear-gradient(120deg, var(--primary-600) 0%, var(--primary-700) 100%);
+      color: #ffffff;
+      border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: 54px 20px 44px 20px;
+      text-align: center;
+      margin-bottom: 36px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      letter-spacing: -0.6px;
+      line-height: 1.05;
+    }
+    .hero p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.95);
+      margin-bottom: 22px;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    h1, h2, h3 {
+      letter-spacing: -0.2px;
+      color: var(--text-color);
+    }
+    h2 { font-size: 1.1rem; font-weight: 700; }
+    h3 { font-size: 1rem; font-weight: 700; }
+    .hero .cta-btn {
+      background: var(--accent-500);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 14px 34px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      box-shadow: 0 6px 18px rgba(255,112,67,0.18);
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s;
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+    .hero .cta-btn:hover { opacity: 0.95; box-shadow: 0 10px 28px rgba(255,112,67,0.18); }
+    .hero .cta-btn:active { transform: translateY(1px) scale(0.997); }
+
+    /* Ensure all text inside the hero (blue) area remains white for contrast */
+    .hero, .hero h1, .hero p, .hero a, .hero .trust-badge, .hero i {
+      color: #ffffff !important;
     }
 
     header {
@@ -51,45 +129,115 @@
     }
 
     .call-box {
-      background: #f5f5f5;
-      padding: 20px;
-      border-radius: 8px;
-      margin: 20px 0;
+      background: var(--card-bg);
+      padding: 22px 20px 18px 20px;
+      border-radius: var(--radius-md);
+      margin: 0 0 22px 0;
       text-align: center;
+      box-shadow: var(--shadow);
+      position: relative;
+      z-index: 2;
+      border: 1px solid rgba(15,23,36,0.04);
     }
-
     .call-box h2 {
-      font-size: 1.3rem;
-      margin-bottom: 10px;
+      font-size: 1.08rem;
+      margin-bottom: 8px;
+      color: var(--primary-600);
+      font-weight: 700;
     }
-
     .call-box a {
-      display: inline-block;
-      font-size: 1.1rem;
-      color: var(--primary-color);
-      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.05rem;
+      color: var(--primary-700);
+      font-weight: 700;
       text-decoration: none;
+      margin-top: 6px;
+      transition: color 0.14s ease, transform 0.12s ease;
     }
+    .call-box a:active { transform: translateY(1px); }
+    .call-box a i { color: var(--accent-500); }
+    .call-box a:hover { color: var(--primary-600); }
 
     .benefits {
-      margin-top: 30px;
+      margin-top: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      justify-content: center;
     }
-
-    .benefits ul {
-      list-style: none;
+    .benefit-card {
+      background: var(--card-bg);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 20px 16px 16px 16px;
+      flex: 1 1 220px;
+      min-width: 170px;
+      max-width: 240px;
+      text-align: center;
+      margin: 0 0 10px 0;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
-
-    .benefits li {
+    .benefit-card:hover {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 8px 32px rgba(30,136,229,0.13);
+    }
+    .benefit-card i {
+      font-size: 1.8rem;
+      color: var(--primary-600);
       margin-bottom: 10px;
-      padding-left: 20px;
-      position: relative;
+      display: block;
     }
+    .benefit-card span {
+      font-size: 1rem;
+      color: #0b1220;
+      font-weight: 700;
+    }
+    p, .hero p, .testimonial { font-weight: 400; color: #253040; }
+    .muted { color: var(--muted); font-weight: 500; }
+    .trust-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 18px 0 0 0;
+      font-size: 1.02rem;
+      color: rgba(255,255,255,0.95);
+      font-weight: 600;
+    }
+    .trust-badge i { color: rgba(255,255,255,0.95); font-size: 1.15rem; }
 
-    .benefits li::before {
-      content: '✔';
-      position: absolute;
-      left: 0;
-      color: green;
+    .testimonials {
+      margin: 36px 0 0 0;
+      padding: 0 0 10px 0;
+    }
+    .testimonials h3 {
+      text-align: center;
+      color: var(--primary-600);
+      font-size: 1.12rem;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+    .testimonial {
+      background: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      padding: 16px 14px 12px 14px;
+      margin: 0 auto 14px auto;
+      max-width: 620px;
+      font-size: 1rem;
+      color: #263238;
+      position: relative;
+      border-left: 4px solid rgba(13,110,253,0.08);
+    }
+    .testimonial .author {
+      margin-top: 10px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-style: normal;
+      text-align: right;
+      font-weight: 600;
     }
 
     .floating-cta {
@@ -97,56 +245,137 @@
       bottom: 0;
       left: 0;
       width: 100%;
-      background: var(--primary-color);
+      background: linear-gradient(90deg,var(--primary-600),var(--primary-700));
       color: white;
       text-align: center;
-      padding: 15px;
-      font-size: 1.1rem;
-      font-weight: 600;
+      padding: 14px 12px;
+      font-size: 1.05rem;
+      font-weight: 700;
       z-index: 1000;
+      box-shadow: 0 -6px 20px rgba(2,6,23,0.12);
     }
-
     .floating-cta a {
       color: white;
       text-decoration: none;
       display: block;
+      letter-spacing: 0.5px;
     }
 
-    @media (min-width: 600px) {
-      .floating-cta {
-        display: none;
-      }
+    @media (min-width: 700px) {
+      .floating-cta { display: none; }
+      .hero h1 { font-size: 2.6rem; }
+      .hero p { font-size: 1.08rem; }
+    }
+    @media (max-width: 420px) {
+      .hero h1 { font-size: 1.6rem; }
+      .hero p { font-size: 0.98rem; }
+      .benefit-card { min-width: 140px; }
+    }
+    /* fluid scaling for medium screens */
+    @media (min-width: 420px) and (max-width: 900px) {
+      .hero h1 { font-size: calc(1.6rem + (2.6 - 1.6) * ((100vw - 420px) / (900 - 420))); }
+      .hero p { font-size: calc(0.98rem + (1.08 - 0.98) * ((100vw - 420px) / (900 - 420))); }
+      .container { max-width: 860px; }
+    }
+    /* Footer */
+    .site-footer {
+      background: linear-gradient(180deg, rgba(6,24,58,0.03), rgba(6,24,58,0.02));
+      border-top: 1px solid rgba(15,23,36,0.04);
+      padding: 18px 0 36px 0;
+      margin-top: 36px;
+    }
+    .site-footer .footer-inner {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 8px;
+    }
+    .site-footer .company { font-weight: 700; color: #0b1220; }
+    .site-footer .cin { font-size: 0.95rem; margin-top: 4px; }
+    .site-footer .muted { color: var(--muted); }
+    .site-footer .footer-right { text-align: right; font-size: 0.95rem; }
+    @media (max-width: 560px) {
+      .site-footer .footer-inner { flex-direction: column; gap: 6px; align-items: flex-start; }
+      .site-footer .footer-right { text-align: left; }
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <header>
-      <h1>Fast & Reliable TV Repair</h1>
-      <p>Same-day service available. We repair all major TV brands.</p>
-    </header>
+  <div class="hero">
+    <h1>Fast & Reliable TV Repair</h1>
+    <p>Same-day service. Certified technicians. All brands & models. <br>Get your TV working like new—today!</p>
+    <a class="cta-btn" href="tel:18003091619"><i class="fa-solid fa-phone"></i> Call Now: 1800-309-1619</a>
+    <div class="trust-badge"><i class="fa-solid fa-shield-halved"></i> 100% Satisfaction Guarantee</div>
+  </div>
 
+  <div class="container">
     <div class="call-box">
-      <h2>Call Now for Instant Support</h2>
-      <a href="tel:18003091619">📞 1800-309-1619</a>
+      <h2><i class="fa-solid fa-headset"></i> Speak to a TV Expert</h2>
+      <a href="tel:18003091619"><i class="fa-solid fa-phone"></i> 1800-309-1619</a>
     </div>
 
     <div class="benefits">
-      <ul>
-        <li>Same-Day TV Repairs</li>
-        <li>Certified & Trusted Technicians</li>
-        <li>Affordable Pricing</li>
-        <li>All Brands & Models Supported</li>
-        <li>No Hidden Charges</li>
-      </ul>
+      <div class="benefit-card">
+        <i class="fa-solid fa-bolt"></i>
+        <span>Same-Day TV Repairs</span>
+      </div>
+      <div class="benefit-card">
+        <i class="fa-solid fa-user-shield"></i>
+        <span>Certified & Trusted Technicians</span>
+      </div>
+      <div class="benefit-card">
+        <i class="fa-solid fa-tags"></i>
+        <span>Affordable Pricing</span>
+      </div>
+      <div class="benefit-card">
+        <i class="fa-solid fa-tv"></i>
+        <span>All Brands & Models Supported</span>
+      </div>
+      <div class="benefit-card">
+        <i class="fa-solid fa-receipt"></i>
+        <span>No Hidden Charges</span>
+      </div>
+    </div>
+
+    <div class="testimonials">
+      <h3>What Our Customers Say</h3>
+      <div class="testimonial">
+        "Excellent service! My TV was fixed the same day. Technician was professional and friendly. Highly recommend!"
+        <div class="author">– Priya S., Bengaluru</div>
+      </div>
+      <div class="testimonial">
+        "Quick response and transparent pricing. My Sony TV works perfectly now. Thank you!"
+        <div class="author">– Rahul M., Mumbai</div>
+      </div>
     </div>
   </div>
 
   <!-- Floating Call Button for Mobile -->
   <div class="floating-cta">
-    <a href="tel:18003091619">📞 Call Now: 1800-309-1619</a>
+    <a href="tel:18003091619"><i class="fa-solid fa-phone"></i> Call Now: 1800-309-1619</a>
   </div>
+
+  <footer class="site-footer" role="contentinfo" aria-label="Site footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+          <div class="company">© <span id="year">2025</span> APPLIQART 365 SERVICEONE PRIVATE LIMITED</div>
+        <div class="cin muted">CIN: U47594UP2025PTC231575</div>
+      </div>
+      <div class="footer-right muted">All rights reserved. Services subject to terms and conditions.</div>
+    </div>
+  </footer>
+
+  <script>
+    // set current year in footer if DOM available (graceful when JS enabled)
+    (function(){
+      try{
+        var el = document.getElementById('year');
+        if(el) el.textContent = new Date().getFullYear();
+      }catch(e){/* ignore */}
+    })();
+  </script>
 
 </body>
 </html>
