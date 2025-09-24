@@ -9,6 +9,44 @@
     gtag('js', new Date());
     gtag('config', 'AW-17514910452');
   </script>
+  <!-- Event snippet for Contact conversion page -->
+  <script>
+  function gtag_report_conversion(url) {
+    // If a URL is provided, the helper will navigate after the conversion event.
+    // To support tel: links (same window) and opening new tabs (wa.me),
+    // callers can pass a plain URL or a special object with { url: '...', newTab: true }.
+    var navUrl = url;
+    var openInNewTab = false;
+    if (url && typeof url === 'object') {
+      navUrl = url.url;
+      openInNewTab = !!url.newTab;
+    }
+    var callback = function () {
+      try{
+        if (navUrl) {
+          if (openInNewTab) {
+            window.open(navUrl, '_blank');
+          } else {
+            // navigate same tab
+            window.location = navUrl;
+          }
+        }
+      }catch(e){
+        // best-effort navigation; ignore if blocked
+      }
+    };
+    try{
+      gtag('event', 'conversion', {
+          'send_to': 'AW-17514910452/wX0iCI-w6qAbEPSl4Z9B',
+          'event_callback': callback
+      });
+    }catch(e){
+      // If gtag isn't available, still attempt navigation
+      callback();
+    }
+    return false;
+  }
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TV Repair Services Near You | Call Now</title>
@@ -441,23 +479,29 @@
     (function(){
       var heroCall = document.getElementById('hero-call');
       if(heroCall){
-        heroCall.addEventListener('click', function(){
+        heroCall.addEventListener('click', function(e){
+          e.preventDefault();
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({event: 'tel_click', phone: '18003091619'});
+          try{ gtag_report_conversion('tel:18003091619'); }catch(ex){ window.location = 'tel:18003091619'; }
         });
       }
       var floatingCall = document.getElementById('floating-call');
       if(floatingCall){
-        floatingCall.addEventListener('click', function(){
+        floatingCall.addEventListener('click', function(e){
+          e.preventDefault();
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({event: 'tel_click', phone: '18003091619', source: 'floating_cta'});
+          try{ gtag_report_conversion('tel:18003091619'); }catch(ex){ window.location = 'tel:18003091619'; }
         });
       }
       var waBtns = document.querySelectorAll('.cta-btn.whatsapp');
       waBtns.forEach(function(b){
-        b.addEventListener('click', function(){
+        b.addEventListener('click', function(e){
+          // allow the individual handlers (form or direct wa button) to manage navigation
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({event: 'whatsapp_button_clicked'});
+          try{ gtag_report_conversion(); }catch(ex){}
         });
       });
       var form = document.getElementById('quickLead');
@@ -479,10 +523,10 @@
           // push event to dataLayer
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({event: 'whatsapp_initiated', lead: {name:name, phone:phone, pincode:pincode}});
-          // show temporary message and open WhatsApp in new tab/window
+          // show temporary message and call conversion helper which will open WhatsApp in a new tab
           var msgEl = document.getElementById('lead-msg');
           if(msgEl){ msgEl.style.display = 'block'; msgEl.textContent = 'Opening WhatsApp...'; }
-          window.open(waUrl, '_blank');
+          try{ gtag_report_conversion({ url: waUrl, newTab: true }); }catch(ex){ window.open(waUrl, '_blank'); }
           form.reset();
         });
       }
