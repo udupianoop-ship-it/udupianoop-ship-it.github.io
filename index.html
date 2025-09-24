@@ -310,6 +310,17 @@
   .cta-btn.whatsapp { background: #25D366; color: #042a12; font-weight: 700; box-shadow: 0 6px 18px rgba(37,211,102,0.12); }
   .cta-btn.whatsapp i { margin-right:8px; }
   .rating { color: #fff; margin-left:6px; }
+    /* Offer banner styles */
+    .offer-banner { position:sticky; top:0; z-index:1100; background: linear-gradient(90deg,#ffd54f,#ff7043); color:#082135; padding:10px 0; text-align:center; }
+    .offer-inner { max-width:980px; margin:auto; display:flex; gap:12px; align-items:center; justify-content:space-between; padding:0 20px; }
+    .offer-text { font-weight:700; }
+  .offer-actions { display:flex; gap:8px; align-items:center; }
+  .offer-actions .cta-btn { background: #082135; color: #fff; padding:8px 14px; border-radius:10px; text-decoration:none; font-weight:700; }
+  .offer-actions .cta-btn:hover { opacity:0.95; transform:translateY(-1px); }
+  .btn-link { background:transparent; border:none; color:rgba(8,33,53,0.95); text-decoration:underline; cursor:pointer; font-weight:600; padding:6px 8px; border-radius:8px; }
+  .btn-link:hover { text-decoration:none; background: rgba(8,33,53,0.06); }
+  .offer-actions .cta-btn:focus, .btn-link:focus { outline: 3px solid rgba(2,6,23,0.12); outline-offset: 2px; }
+    @media (max-width:600px){ .offer-inner{ flex-direction:column; gap:8px; } }
   </style>
 </head>
 <body>
@@ -320,14 +331,7 @@
     // Placeholder: replace with your GTM container snippet
   </script>
 
-  <div class="hero">
-    <h1>Same-Day TV Repair — Book Today, Pay After Fix</h1>
-    <p>Get a free diagnostic + 10% off for bookings made today. Call 1800-309-1619<br>Service area: Lucknow only.</p>
-    <a id="hero-call" class="cta-btn" href="tel:18003091619" aria-label="Call now 1800-309-1619"><i class="fa-solid fa-phone"></i> Call Now: 1800-309-1619</a>
-    <div class="trust-badge"><i class="fa-solid fa-star"></i> <strong class="rating">4.9</strong> ★ (420+ reviews)</div>
-  </div>
-
-  <!-- Offer banner (dismissible) -->
+  <!-- Offer banner (dismissible) placed at top -->
   <div id="offer-banner" class="offer-banner" role="region" aria-label="Limited time offer">
     <div class="offer-inner">
       <div class="offer-text"><strong>Limited Time:</strong> Free diagnostic + 10% off for bookings made today (Lucknow only).</div>
@@ -338,14 +342,13 @@
     </div>
   </div>
 
-  <style>
-    .offer-banner { background: linear-gradient(90deg,#ffd54f,#ff7043); color:#082135; padding:10px 0; text-align:center; }
-    .offer-inner { max-width:980px; margin:auto; display:flex; gap:12px; align-items:center; justify-content:space-between; padding:0 20px; }
-    .offer-text { font-weight:700; }
-    .offer-actions { display:flex; gap:8px; align-items:center; }
-    .btn-link { background:transparent; border:none; color:inherit; text-decoration:underline; cursor:pointer; font-weight:600; }
-    @media (max-width:600px){ .offer-inner{ flex-direction:column; gap:8px; } }
-  </style>
+  <div class="hero">
+    <h1>Same-Day TV Repair — Book Today, Pay After Fix</h1>
+    <p>Get a free diagnostic + 10% off for bookings made today. Call 1800-309-1619<br>Service area: Lucknow only.</p>
+    <a id="hero-call" class="cta-btn" href="tel:18003091619" aria-label="Call now 1800-309-1619"><i class="fa-solid fa-phone"></i> Call Now: 1800-309-1619</a>
+    <div class="trust-badge"><i class="fa-solid fa-star"></i> <strong class="rating">4.9</strong> ★ (420+ reviews)</div>
+  </div>
+ 
 
   <div class="container">
     <!-- Quick lead form for users who prefer not to call -->
