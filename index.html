@@ -1,589 +1,250 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) - AW-17514910452 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17514910452"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);} 
-    gtag('js', new Date());
-    gtag('config', 'AW-17514910452');
-  </script>
-  <!-- Event snippet for Contact conversion page -->
-  <script>
-  function gtag_report_conversion(url) {
-    // If a URL is provided, the helper will navigate after the conversion event.
-    // To support tel: links (same window) and opening new tabs (wa.me),
-    // callers can pass a plain URL or a special object with { url: '...', newTab: true }.
-    var navUrl = url;
-    var openInNewTab = false;
-    if (url && typeof url === 'object') {
-      navUrl = url.url;
-      openInNewTab = !!url.newTab;
-    }
-    var callback = function () {
-      try{
-        if (navUrl) {
-          if (openInNewTab) {
-            window.open(navUrl, '_blank');
-          } else {
-            // navigate same tab
-            window.location = navUrl;
-          }
-        }
-      }catch(e){
-        // best-effort navigation; ignore if blocked
-      }
-    };
-    try{
-      gtag('event', 'conversion', {
-          'send_to': 'AW-17514910452/wX0iCI-w6qAbEPSl4Z9B',
-          'event_callback': callback
-      });
-    }catch(e){
-      // If gtag isn't available, still attempt navigation
-      callback();
-    }
-    return false;
-  }
-  </script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TV Repair Services Near You | Call Now</title>
-  <meta name="description" content="Fast & Affordable TV Repair Services. Same-day Service Available. Call 1800-309-1619 Now!">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      /* Primary color family */
-      --primary-500: #0d6efd; /* vivid blue */
-      --primary-600: #0b5ed7;
-      --primary-700: #0a58ca;
-
-      /* Accent */
-      --accent-500: #ff7043; /* warm coral */
-
-      /* Neutrals */
-      --bg-color: #fbfdfe; /* very light blue-ish white */
-      --card-bg: #ffffff;
-      --muted: #6b7280; /* neutral gray for secondary text */
-      --text-color: #0f1724; /* deep charcoal for primary text */
-
-      /* Focus / success */
-      --success: #2e7d32;
-
-      --font: 'Inter', sans-serif;
-      --shadow: 0 6px 30px rgba(15,23,36,0.06);
-      --radius-lg: 18px;
-      --radius-md: 12px;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: var(--font);
-      background: var(--bg-color);
-      color: var(--text-color);
-      line-height: 1.55;
-      padding-bottom: 88px; /* for floating button */
-      min-height: 100vh;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      font-weight: 400;
-      font-size: 16px;
-    }
-
-    .container {
-      padding: 0 20px 20px 20px;
-      max-width: 980px;
-      margin: auto;
-    }
-
-    .hero {
-      background: linear-gradient(120deg, var(--primary-600) 0%, var(--primary-700) 100%);
-      color: #ffffff;
-      border-radius: 0 0 var(--radius-lg) var(--radius-lg);
-      box-shadow: var(--shadow);
-      padding: 54px 20px 44px 20px;
-      text-align: center;
-      margin-bottom: 36px;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero h1 {
-      font-size: 2.4rem;
-      font-weight: 800;
-      margin-bottom: 10px;
-      letter-spacing: -0.6px;
-      line-height: 1.05;
-    }
-    .hero p {
-      font-size: 1.05rem;
-      color: rgba(255,255,255,0.95);
-      margin-bottom: 22px;
-      max-width: 720px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    h1, h2, h3 {
-      letter-spacing: -0.2px;
-      color: var(--text-color);
-    }
-    h2 { font-size: 1.1rem; font-weight: 700; }
-    h3 { font-size: 1rem; font-weight: 700; }
-    .hero .cta-btn {
-      background: var(--accent-500);
-      color: #fff;
-      border: none;
-      border-radius: 999px;
-      padding: 14px 34px;
-      font-size: 1.05rem;
-      font-weight: 700;
-      box-shadow: 0 6px 18px rgba(255,112,67,0.18);
-      cursor: pointer;
-      transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s;
-      text-decoration: none;
-      display: inline-block;
-      margin-bottom: 8px;
-    }
-    .hero .cta-btn:hover { opacity: 0.95; box-shadow: 0 10px 28px rgba(255,112,67,0.18); }
-    .hero .cta-btn:active { transform: translateY(1px) scale(0.997); }
-
-    /* Ensure all text inside the hero (blue) area remains white for contrast */
-    .hero, .hero h1, .hero p, .hero a, .hero .trust-badge, .hero i {
-      color: #ffffff !important;
-    }
-
-    header {
-      text-align: center;
-      padding: 40px 20px 20px;
-    }
-
-    header h1 {
-      font-size: 1.8rem;
-      color: var(--primary-color);
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 1rem;
-      color: #555;
-    }
-
-    .call-box {
-      background: var(--card-bg);
-      padding: 22px 20px 18px 20px;
-      border-radius: var(--radius-md);
-      margin: 0 0 22px 0;
-      text-align: center;
-      box-shadow: var(--shadow);
-      position: relative;
-      z-index: 2;
-      border: 1px solid rgba(15,23,36,0.04);
-    }
-    .call-box h2 {
-      font-size: 1.08rem;
-      margin-bottom: 8px;
-      color: var(--primary-600);
-      font-weight: 700;
-    }
-    .call-box a {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 1.05rem;
-      color: var(--primary-700);
-      font-weight: 700;
-      text-decoration: none;
-      margin-top: 6px;
-      transition: color 0.14s ease, transform 0.12s ease;
-    }
-    .call-box a:active { transform: translateY(1px); }
-    .call-box a i { color: var(--accent-500); }
-    .call-box a:hover { color: var(--primary-600); }
-
-    .benefits {
-      margin-top: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-      justify-content: center;
-    }
-    .benefit-card {
-      background: var(--card-bg);
-      border-radius: 14px;
-      box-shadow: var(--shadow);
-      padding: 20px 16px 16px 16px;
-      flex: 1 1 220px;
-      min-width: 170px;
-      max-width: 240px;
-      text-align: center;
-      margin: 0 0 10px 0;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
-    .benefit-card:hover {
-      transform: translateY(-4px) scale(1.03);
-      box-shadow: 0 8px 32px rgba(30,136,229,0.13);
-    }
-    .benefit-card i {
-      font-size: 1.8rem;
-      color: var(--primary-600);
-      margin-bottom: 10px;
-      display: block;
-    }
-    .benefit-card span {
-      font-size: 1rem;
-      color: #0b1220;
-      font-weight: 700;
-    }
-    p, .hero p, .testimonial { font-weight: 400; color: #253040; }
-    .muted { color: var(--muted); font-weight: 500; }
-    .trust-badge {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin: 18px 0 0 0;
-      font-size: 1.02rem;
-      color: rgba(255,255,255,0.95);
-      font-weight: 600;
-    }
-    .trust-badge i { color: rgba(255,255,255,0.95); font-size: 1.15rem; }
-
-    .testimonials {
-      margin: 36px 0 0 0;
-      padding: 0 0 10px 0;
-    }
-    .testimonials h3 {
-      text-align: center;
-      color: var(--primary-600);
-      font-size: 1.12rem;
-      margin-bottom: 16px;
-      font-weight: 700;
-    }
-    .testimonial {
-      background: var(--card-bg);
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      padding: 16px 14px 12px 14px;
-      margin: 0 auto 14px auto;
-      max-width: 620px;
-      font-size: 1rem;
-      color: #263238;
-      position: relative;
-      border-left: 4px solid rgba(13,110,253,0.08);
-    }
-    .testimonial .author {
-      margin-top: 10px;
-      font-size: 0.95rem;
-      color: var(--muted);
-      font-style: normal;
-      text-align: right;
-      font-weight: 600;
-    }
-
-    .floating-cta {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: linear-gradient(90deg,var(--primary-600),var(--primary-700));
-      color: white;
-      text-align: center;
-      padding: 14px 12px;
-      font-size: 1.05rem;
-      font-weight: 700;
-      z-index: 1000;
-      box-shadow: 0 -6px 20px rgba(2,6,23,0.12);
-    }
-    .floating-cta a {
-      color: white;
-      text-decoration: none;
-      display: block;
-      letter-spacing: 0.5px;
-    }
-
-    @media (min-width: 700px) {
-      .floating-cta { display: none; }
-      .hero h1 { font-size: 2.6rem; }
-      .hero p { font-size: 1.08rem; }
-    }
-    @media (max-width: 420px) {
-      .hero h1 { font-size: 1.6rem; }
-      .hero p { font-size: 0.98rem; }
-      .benefit-card { min-width: 140px; }
-    }
-    /* fluid scaling for medium screens */
-    @media (min-width: 420px) and (max-width: 900px) {
-      .hero h1 { font-size: calc(1.6rem + (2.6 - 1.6) * ((100vw - 420px) / (900 - 420))); }
-      .hero p { font-size: calc(0.98rem + (1.08 - 0.98) * ((100vw - 420px) / (900 - 420))); }
-      .container { max-width: 860px; }
-    }
-    /* Footer */
-    .site-footer {
-      background: linear-gradient(180deg, rgba(6,24,58,0.03), rgba(6,24,58,0.02));
-      border-top: 1px solid rgba(15,23,36,0.04);
-      padding: 18px 0 36px 0;
-      margin-top: 36px;
-    }
-    .site-footer .footer-inner {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 8px;
-    }
-    .site-footer .company { font-weight: 700; color: #0b1220; }
-    .site-footer .cin { font-size: 0.95rem; margin-top: 4px; }
-    .site-footer .muted { color: var(--muted); }
-    .site-footer .footer-right { text-align: right; font-size: 0.95rem; }
-    @media (max-width: 560px) {
-      .site-footer .footer-inner { flex-direction: column; gap: 6px; align-items: flex-start; }
-      .site-footer .footer-right { text-align: left; }
-    }
-    /* Lead form styles */
-    .lead-form { background: transparent; margin-bottom: 20px; text-align: center; }
-  .lead-form h2 { margin-bottom: 12px; color: var(--primary-700); }
-  .card { background: var(--card-bg); padding: 14px; border-radius: 14px; display: inline-block; box-shadow: var(--shadow); }
-  .form-inline { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
-  .form-inline .input { padding:10px 12px; border-radius:10px; border:1px solid rgba(15,23,36,0.06); min-width:180px; background: #fff; color: var(--text-color); }
-  .form-inline .input::placeholder { color: rgba(15,23,36,0.36); }
-  .form-inline .cta-btn { padding:10px 14px; border-radius:10px; }
-  .cta-btn.whatsapp { background: #25D366; color: #042a12; font-weight: 700; box-shadow: 0 6px 18px rgba(37,211,102,0.12); }
-  .cta-btn.whatsapp i { margin-right:8px; }
-  .rating { color: #fff; margin-left:6px; }
-    /* Offer banner styles */
-    .offer-banner { position:sticky; top:0; z-index:1100; background: linear-gradient(90deg,#ffd54f,#ff7043); color:#082135; padding:10px 0; text-align:center; }
-    .offer-inner { max-width:980px; margin:auto; display:flex; gap:12px; align-items:center; justify-content:space-between; padding:0 20px; }
-    .offer-text { font-weight:700; }
-  .offer-actions { display:flex; gap:8px; align-items:center; }
-  .offer-actions .cta-btn { background: #082135; color: #fff; padding:8px 14px; border-radius:10px; text-decoration:none; font-weight:700; }
-  .offer-actions .cta-btn:hover { opacity:0.95; transform:translateY(-1px); }
-  .btn-link { background:transparent; border:none; color:rgba(8,33,53,0.95); text-decoration:underline; cursor:pointer; font-weight:600; padding:6px 8px; border-radius:8px; }
-  .btn-link:hover { text-decoration:none; background: rgba(8,33,53,0.06); }
-  .offer-actions .cta-btn:focus, .btn-link:focus { outline: 3px solid rgba(2,6,23,0.12); outline-offset: 2px; }
-    @media (max-width:600px){ .offer-inner{ flex-direction:column; gap:8px; } }
-  </style>
-</head>
-<body>
-  <!-- Google Tag Manager (placeholder) -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtagPush(e){ window.dataLayer.push(e); }
-    // Placeholder: replace with your GTM container snippet
-  </script>
-
-  <!-- Offer banner (dismissible) placed at top -->
-  <div id="offer-banner" class="offer-banner" role="region" aria-label="Limited time offer">
-    <div class="offer-inner">
-      <div class="offer-text"><strong>Limited Time:</strong> Free diagnostic + 10% off for bookings made today (Lucknow only).</div>
-      <div class="offer-actions">
-        <a id="offer-call" class="cta-btn" href="tel:18003091619">Call Now</a>
-        <button id="offer-dismiss" class="btn-link" aria-label="Dismiss offer">Dismiss</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="hero">
-    <h1>Same-Day TV Repair — Book Today, Pay After Fix</h1>
-    <p>Get a free diagnostic + 10% off for bookings made today. Call 1800-309-1619<br>Service area: Lucknow only.</p>
-    <a id="hero-call" class="cta-btn" href="tel:18003091619" aria-label="Call now 1800-309-1619"><i class="fa-solid fa-phone"></i> Call Now: 1800-309-1619</a>
-    <div class="trust-badge"><i class="fa-solid fa-star"></i> <strong class="rating">4.9</strong> ★ (420+ reviews)</div>
-  </div>
- 
-
-  <div class="container">
-    <!-- Quick lead form for users who prefer not to call -->
-    <div style="margin-top: -8px;"></div>
-    <div class="lead-form" aria-labelledby="lead-form-heading">
-      <h2 id="lead-form-heading">Quick Booking (Lucknow)</h2>
-      <form id="quickLead" class="form-inline card" action="#" onsubmit="return false;" aria-label="Quick booking form">
-        <input class="input" type="text" name="name" id="lead-name" placeholder="Your name" required autocomplete="name" />
-        <input class="input" type="tel" name="phone" id="lead-phone" placeholder="Phone number" required autocomplete="tel" />
-        <input class="input" type="text" name="pincode" id="lead-pincode" placeholder="Pincode (Lucknow)" required autocomplete="postal-code" />
-        <button id="lead-submit" class="cta-btn whatsapp" type="submit"><i class="fa-brands fa-whatsapp"></i> Message on WhatsApp</button>
-      </form>
-      <div id="lead-msg" role="status" aria-live="polite" style="display:none;margin-top:10px;">Opening WhatsApp...</div>
-    </div>
-    <div class="call-box">
-      <h2><i class="fa-solid fa-headset"></i> Speak to a TV Expert</h2>
-      <a href="tel:18003091619"><i class="fa-solid fa-phone"></i> 1800-309-1619</a>
-    </div>
-
-    <div class="benefits">
-      <div class="benefit-card">
-        <i class="fa-solid fa-bolt"></i>
-        <span>Same-Day TV Repairs</span>
-      </div>
-      <div class="benefit-card">
-        <i class="fa-solid fa-user-shield"></i>
-        <span>Certified & Trusted Technicians</span>
-      </div>
-      <div class="benefit-card">
-        <i class="fa-solid fa-tags"></i>
-        <span>Affordable Pricing</span>
-      </div>
-      <div class="benefit-card">
-        <i class="fa-solid fa-tv"></i>
-        <span>All Brands & Models Supported</span>
-      </div>
-      <div class="benefit-card">
-        <i class="fa-solid fa-receipt"></i>
-        <span>No Hidden Charges</span>
-      </div>
-    </div>
-
-    <div class="testimonials">
-      <h3>What Our Customers Say</h3>
-      <div class="testimonial">
-        "Excellent service! My TV was fixed the same day. Technician was professional and friendly. Highly recommend!"
-        <div class="author">– Priya S., Bengaluru</div>
-      </div>
-      <div class="testimonial">
-        "Quick response and transparent pricing. My Sony TV works perfectly now. Thank you!"
-        <div class="author">– Rahul M., Mumbai</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Floating Call Button for Mobile -->
-  <div class="floating-cta">
-    <a id="floating-call" href="tel:18003091619"><i class="fa-solid fa-phone"></i> Call Now: 1800-309-1619</a>
-  </div>
-
-  <footer class="site-footer" role="contentinfo" aria-label="Site footer">
-    <div class="container footer-inner">
-      <div class="footer-left">
-          <div class="company">© <span id="year">2025</span> APPLIQART 365 SERVICEONE PRIVATE LIMITED</div>
-        <div class="cin muted">CIN: U47594UP2025PTC231575</div>
-      </div>
-      <div class="footer-right muted">All rights reserved. Services subject to terms and conditions.</div>
-    </div>
-  </footer>
-
-  <script>
-    // set current year in footer if DOM available (graceful when JS enabled)
-    (function(){
-      try{
-        var el = document.getElementById('year');
-        if(el) el.textContent = new Date().getFullYear();
-      }catch(e){/* ignore */}
-    })();
-  </script>
-  <script>
-    // track tel clicks and form submits via dataLayer pushes
-    (function(){
-      var heroCall = document.getElementById('hero-call');
-      if(heroCall){
-        heroCall.addEventListener('click', function(e){
-          e.preventDefault();
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({event: 'tel_click', phone: '18003091619'});
-          try{ gtag_report_conversion('tel:18003091619'); }catch(ex){ window.location = 'tel:18003091619'; }
-        });
-      }
-      var floatingCall = document.getElementById('floating-call');
-      if(floatingCall){
-        floatingCall.addEventListener('click', function(e){
-          e.preventDefault();
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({event: 'tel_click', phone: '18003091619', source: 'floating_cta'});
-          try{ gtag_report_conversion('tel:18003091619'); }catch(ex){ window.location = 'tel:18003091619'; }
-        });
-      }
-      var waBtns = document.querySelectorAll('.cta-btn.whatsapp');
-      waBtns.forEach(function(b){
-        b.addEventListener('click', function(e){
-          // allow the individual handlers (form or direct wa button) to manage navigation
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({event: 'whatsapp_button_clicked'});
-          try{ gtag_report_conversion(); }catch(ex){}
-        });
-      });
-      var form = document.getElementById('quickLead');
-      if(form){
-        form.addEventListener('submit', function(e){
-          e.preventDefault();
-          var name = document.getElementById('lead-name').value.trim() || '';
-          var phone = document.getElementById('lead-phone').value.trim() || '';
-          var pincode = document.getElementById('lead-pincode').value.trim() || '';
-          // rudimentary validation: ensure pincode looks like numeric
-          if(!/^[0-9]{5,6}$/.test(pincode)){
-            alert('Please enter a valid Lucknow pincode.');
-            return;
-          }
-          // prepare WhatsApp message (encode full message)
-          var rawMsg = 'Hello, I would like to book a same-day TV repair.\nName: ' + name + '\nPhone: ' + phone + '\nPincode: ' + pincode + '\nService area: Lucknow';
-          var waNumber = '918953689444'; // international format without +
-          var waUrl = 'https://wa.me/' + waNumber + '?text=' + encodeURIComponent(rawMsg);
-          // push event to dataLayer
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({event: 'whatsapp_initiated', lead: {name:name, phone:phone, pincode:pincode}});
-          // show temporary message and call conversion helper which will open WhatsApp in a new tab
-          var msgEl = document.getElementById('lead-msg');
-          if(msgEl){ msgEl.style.display = 'block'; msgEl.textContent = 'Opening WhatsApp...'; }
-          try{ gtag_report_conversion({ url: waUrl, newTab: true }); }catch(ex){ window.open(waUrl, '_blank'); }
-          form.reset();
-        });
-      }
-    })();
-  </script>
-
-  <script>
-    // Offer banner dismissal persistence and tracking
-    (function(){
-      var banner = document.getElementById('offer-banner');
-      var dismiss = document.getElementById('offer-dismiss');
-      var call = document.getElementById('offer-call');
-      try{
-        if(window.localStorage && localStorage.getItem('offerHidden')==='1'){
-          if(banner) banner.style.display='none';
-        }
-      }catch(e){/* ignore */}
-      if(dismiss){
-        dismiss.addEventListener('click', function(){
-          if(banner) banner.style.display='none';
-          try{ localStorage.setItem('offerHidden','1'); }catch(e){}
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({event:'offer_dismissed'});
-        });
-      }
-      if(call){
-        call.addEventListener('click', function(){
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({event:'offer_call', phone:'18003091619'});
-        });
-      }
-    })();
-  </script>
-
-  <!-- LocalBusiness JSON-LD (Lucknow) -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Lucknow TV Repair — Fast, Expert Service | Call 1800-309-1619</title>
+  <meta name="description" content="Fast & affordable TV repair in Lucknow. Certified technicians, same-day service, warranty on repairs. Call 1800-309-1619 now.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "APPLIQART 365 SERVICEONE PRIVATE LIMITED",
-    "legalName": "APPLIQART 365 SERVICEONE PRIVATE LIMITED",
     "telephone": "18003091619",
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "telephone": "+918953689444",
+      "contactType": "customer service",
+      "description": "WhatsApp for quick messages"
+    }],
+    "url": "https://udupianoop-ship-it.github.io/",
     "address": {
       "@type": "PostalAddress",
+      "streetAddress": "Lucknow Service Center",
       "addressLocality": "Lucknow",
-      "addressRegion": "UP",
+      "addressRegion": "Uttar Pradesh",
+      "postalCode": "226001",
       "addressCountry": "IN"
     },
-    "areaServed": "Lucknow",
-    "openingHours": "Mo-Su 09:00-21:00",
+    "areaServed": {
+      "@type": "City",
+      "name": "Lucknow"
+    },
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "420"
+      "ratingValue": "4.7",
+      "reviewCount": "3200"
     }
   }
   </script>
+</head>
+<body>
+  <main class="container">
+    <header class="hero" role="banner">
+      <div class="hero-decor" aria-hidden="true"></div>
+      <picture class="hero-image" aria-hidden="true">
+        <source srcset="OIP.webp" type="image/webp">
+        <img src="OIP.webp" alt="TV repair technician working on TV" draggable="false">
+      </picture>
+      <div class="hero-inner">
+        <div class="brand">
+          <h1>Lucknow TV Repair — Fast & Reliable</h1>
+          <p class="sub">Same-day in Lucknow • Certified technicians • 90-day warranty</p>
+          <div class="hero-badges" aria-hidden="true">
+            <span class="badge">Serving Lucknow</span>
+            <span class="badge">Certified Technicians</span>
+          </div>
+        </div>
 
+        <figure class="tv-graphic" aria-hidden="true">
+          <svg width="220" height="140" viewBox="0 0 220 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="190" height="100" x="15" y="12" rx="8" fill="#0b6e4f" />
+            <rect width="150" height="70" x="35" y="28" rx="6" fill="#071a12" />
+            <rect width="60" height="10" x="80" y="116" rx="5" fill="#0b6e4f" />
+          </svg>
+        </figure>
+      </div>
+
+      <a class="primary-cta" href="tel:18003091619" aria-label="Call 1800 309 1619">Call Now — 1800-309-1619</a>
+    </header>
+
+    <section class="benefits" aria-labelledby="benefits-heading">
+      <h2 id="benefits-heading" class="visually-hidden">Benefits</h2>
+      <ul>
+        <li><strong>Quick Response:</strong> Same-day or next-day appointments.</li>
+        <li><strong>Certified Technicians:</strong> Experienced in all major TV brands.</li>
+        <li><strong>Transparent Pricing:</strong> Free diagnostics with repair.</li>
+      </ul>
+    </section>
+
+    <section class="how-it-works" aria-labelledby="how-heading">
+      <h2 id="how-heading">How It Works</h2>
+      <ol>
+  <li>Call 1800-309-1619 or request a callback for Lucknow service.</li>
+  <li>We dispatch technicians across Lucknow — same-day where available.</li>
+  <li>Repairs include a 90-day warranty on parts &amp; labor.</li>
+      </ol>
+    </section>
+
+    <section class="trust" aria-labelledby="trust-heading">
+      <h3 id="trust-heading">Trusted By Thousands</h3>
+      <p class="rating">Average rating: <strong>4.7/5</strong> from <strong>3,200+</strong> customers.</p>
+      <div class="stars" aria-hidden="true">★★★★★</div>
+      <div class="badges" aria-hidden="true">
+        <span class="badge">Same-day Service</span>
+        <span class="badge">90-day Warranty</span>
+        <span class="badge">Certified Technicians</span>
+      </div>
+      <p class="accreditation muted">Licensed service provider — trained and background-checked technicians.</p>
+    </section>
+
+    <section class="reviews" aria-labelledby="reviews-heading">
+      <h2 id="reviews-heading">What Customers Say</h2>
+      <div class="review-list">
+        <blockquote class="review">
+          <p>Great service — technician arrived on time and fixed my Samsung TV in 2 hours. Transparent pricing.</p>
+          <cite>— Rahul K.</cite>
+        </blockquote>
+        <blockquote class="review">
+          <p>Quick pickup and delivery. Repaired at a fair price and the picture is perfect now.</p>
+          <cite>— Priya S.</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="technicians" aria-labelledby="tech-heading">
+      <h2 id="tech-heading">Meet Our Technicians</h2>
+      <div class="tech-grid">
+        <article class="tech-card">
+          <img src="OIP.webp" alt="Arjun" loading="lazy" />
+          <h4>Arjun — Senior Technician</h4>
+          <p>10+ years repairing LED, OLED & QLED TVs.</p>
+        </article>
+        <article class="tech-card">
+          <img src="OIP.webp" alt="Neha" loading="lazy" />
+          <h4>Neha — Calibration Expert</h4>
+          <p>Specialises in picture calibration & panel replacement.</p>
+        </article>
+      </div>
+    </section>
+
+
+
+    
+
+    <section class="contact-form" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Message Us on WhatsApp</h2>
+      <form id="callbackForm" action="#" method="post">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" placeholder="Your name" required>
+
+        <label for="phone">Phone</label>
+        <input id="phone" name="phone" type="tel" placeholder="10-digit phone" pattern="[0-9+\- ]+" required>
+
+        <label for="note">Problem (optional)</label>
+        <input id="note" name="note" type="text" placeholder="e.g., No power / lines on screen">
+
+        <button type="submit" class="primary-cta">Send via WhatsApp</button>
+        <p class="form-note muted">Or call us now: <a href="tel:18003091619">1800-309-1619</a>
+          <a class="whatsapp-link" href="https://wa.me/918953689444" target="_blank" rel="noopener" aria-label="WhatsApp 918953689444">• WhatsApp</a>
+        </p>
+      </form>
+    </section>
+
+    <section class="faq" aria-labelledby="faq-heading">
+      <h2 id="faq-heading">Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">How long does a typical repair take?</button>
+        <div class="faq-a" hidden>Most in-home repairs are completed the same day; complex part replacements may take 1–3 days.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">Do you provide warranty?</button>
+        <div class="faq-a" hidden>Yes — a 90-day warranty on parts and labor after the repair is completed.</div>
+      </div>
+    </section>
+
+    <footer class="footer">
+  <p>Questions? Call <a href="tel:18003091619">1800-309-1619</a> <a class="whatsapp-link" href="https://wa.me/918953689444" target="_blank" rel="noopener" aria-label="WhatsApp 918953689444">• WhatsApp</a></p>
+    <p class="small">© <span id="year"></span> APPLIQART 365 SERVICEONE PRIVATE LIMITED — CIN: U47594UP2025PTC231575. Serving Lucknow, Uttar Pradesh.</p>
+    
+    <div class="keyword-pills" aria-hidden="true">
+      <h3 class="visually-hidden">Related search keywords</h3>
+      <ul class="pills-list">
+        <li class="pill">tv repair near me</li>
+        <li class="pill">tv repair lucknow</li>
+        <li class="pill">same day tv repair</li>
+        <li class="pill">led tv repair</li>
+        <li class="pill">oled tv service</li>
+        <li class="pill">screen replacement</li>
+        <li class="pill">panel repair</li>
+        <li class="pill">power issue fix</li>
+        <li class="pill">sound issues</li>
+        <li class="pill">in-home repair</li>
+        <li class="pill">tv service center lucknow</li>
+        <li class="pill">tv repair cost</li>
+        <li class="pill">Samsung tv service</li>
+        <li class="pill">LG tv repair</li>
+        <li class="pill">Sony tv service</li>
+        <li class="pill">Panasonic tv repair</li>
+        <li class="pill">TCL tv repair</li>
+        <li class="pill">Hisense tv service</li>
+        <li class="pill">tv repair warranty</li>
+        <li class="pill">calibration &amp; settings</li>
+      </ul>
+    </div>
+    </footer>
+  </main>
+
+  <a class="floating-call" href="tel:18003091619" aria-label="Call 1800 309 1619">
+    <span class="phone" aria-hidden="true">
+      <!-- inline phone SVG -->
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3 5.18 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72c.12 1.05.45 2.08.97 3.02a2 2 0 0 1-.45 2.11L9.91 11.09a16 16 0 0 0 6 6l1.24-1.24a2 2 0 0 1 2.11-.45c.94.52 1.97.85 3.02.97A2 2 0 0 1 22 16.92z" fill="currentColor"/>
+      </svg>
+    </span>
+    <span class="txt">Call Us</span>
+  </a>
+
+  <script>
+    // Set current year
+    try { document.getElementById('year').textContent = new Date().getFullYear(); } catch(e){}
+
+    // FAQ toggle
+    document.querySelectorAll('.faq-q').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', !expanded);
+        var a = this.nextElementSibling;
+        if(!expanded){ a.hidden = false; } else { a.hidden = true; }
+      });
+    });
+
+    // Convert contact form submission to a prefilled WhatsApp message
+    var form = document.getElementById('callbackForm');
+    if(form){
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        var name = form.name.value.trim();
+        var phone = form.phone.value.trim();
+        var note = form.note.value.trim();
+        if(!name || !phone){
+          alert('Please enter name and phone number');
+          return;
+        }
+        var message = 'Hello, my name is ' + name + '. My phone: ' + phone + '. ' + (note ? 'Issue: ' + note + '.' : '');
+        var wa = 'https://wa.me/918953689444?text=' + encodeURIComponent(message);
+        // Try to open WhatsApp in a new tab/window
+        var win = window.open(wa, '_blank');
+        if(!win){
+          // Popup blocked — fallback to showing the link for the user to tap
+          var confirmOpen = confirm('We could not open WhatsApp automatically. Click OK to open the link.');
+          if(confirmOpen) window.location.href = wa;
+        }
+        form.reset();
+      });
+    }
+  </script>
 </body>
 </html>
