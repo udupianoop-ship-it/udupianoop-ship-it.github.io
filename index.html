@@ -11,43 +11,23 @@
   gtag('config', 'AW-17602842801');
 </script>
   <!-- Event snippet for Contact conversion page -->
-  <script>
-  function gtag_report_conversion(url) {
-    // If a URL is provided, the helper will navigate after the conversion event.
-    // To support tel: links (same window) and opening new tabs (wa.me),
-    // callers can pass a plain URL or a special object with { url: '...', newTab: true }.
-    var navUrl = url;
-    var openInNewTab = false;
-    if (url && typeof url === 'object') {
-      navUrl = url.url;
-      openInNewTab = !!url.newTab;
+<!-- Event snippet for Contact conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
     }
-    var callback = function () {
-      try{
-        if (navUrl) {
-          if (openInNewTab) {
-            window.open(navUrl, '_blank');
-          } else {
-            // navigate same tab
-            window.location = navUrl;
-          }
-        }
-      }catch(e){
-        // best-effort navigation; ignore if blocked
-      }
-    };
-    try{
-      gtag('event', 'conversion', {
-          'send_to': 'AW-17597815272/wX0iCI-w6qAbEPSl4Z9B',
-          'event_callback': callback
-      });
-    }catch(e){
-      // If gtag isn't available, still attempt navigation
-      callback();
-    }
-    return false;
-  }
-  </script>
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17602842801/frqLCOC_16IbELGh2MlB',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TV Repair Services Near You | Call Now</title>
